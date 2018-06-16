@@ -1,0 +1,13 @@
+<form class="pure-form pure-form-stacked">
+  <fieldset>
+    <label for="email">Username</label>
+    {{input type='text' name='username' placeholder="Username" value=username}}
+    <br>
+    <label for="password">Password</label>
+    {{input type='password' name='password' placeholder="Password" value=password}}
+    <br>
+    <button type="submit" class="pure-button pure-button-primary" disabled={{isLoading}} {{action 'authenticate'}}>
+      {{if isLoading 'Authenticating...' 'Sign in'}}
+    </button>
+  </fieldset>
+</form>

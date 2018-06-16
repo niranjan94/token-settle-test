@@ -18,9 +18,18 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      apiHost: 'https://wt-f805e3589e52ede2272a91b25a1374e6-0.sandbox.auth0-extend.com/jwt-dummy'
     }
+  };
+
+  ENV['ember-simple-auth-token'] = {
+    refreshAccessTokens      : false,
+    serverTokenEndpoint      : `${ENV.APP.apiHost}/login`,
+    tokenPropertyName        : 'access_token',
+    refreshTokenPropertyName : 'refresh_token',
+    authorizationPrefix      : 'JWT ',
+    authorizationHeaderName  : 'Authorization',
+    headers                  : {}
   };
 
   if (environment === 'development') {
